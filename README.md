@@ -7,16 +7,18 @@ Check the wiki for the full documentation.
 ## Installation  
 
 ### Install npm  
+Type in terminal:  
 `$ npm install`
 
 ### Install git  
+Type in terminal:  
 `$ sudo apt-get install git`
 
 ## Getting started  
-Copy repository
+Copy repository  
 `$ git clone https://github.com/MaylinnK/Project-Tech.git`
 
-Start application
+Start application  
 `$ npm start`
 
 ## License  
