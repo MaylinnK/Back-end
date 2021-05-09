@@ -5,18 +5,18 @@
     <%- include('layouts/head.ejs') -%>
 </head>
 
-<body class="ho">
-
+<body class="lo">
 
     <%- include('layouts/header.ejs') -%>
         <h1>
-            What would you like to do?
+            <%= title %>
         </h1>
         <form action="#">
-            <a href="/main/gametimes">View my gametimes</a>
-            <a href="/main/players">View players</a>
-            <a href="/main/matches">Match me!</a>
+            <input type="text" placeholder="Username">
+            <input type="text" placeholder="Password">
+            <a href="/main">Sign in</a>
         </form>
+
         <%- include('layouts/footer.ejs') -%>
 </body>
 

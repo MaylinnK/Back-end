@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('layouts/head.ejs') -%>
+</head>
+
+<body>
+
+
+    <%- include('layouts/header.ejs') -%>
+
+        <h1>
+            <%= title %>
+        </h1>
+        <% users.forEach(function (user) { %>
+            <h2>
+                <%= user.name %>
+            </h2>
+            <h3>Most played games</h3>
+            <article>
+                <% user.topGames.forEach(function (game) { %>
+                    <p>
+                        <%= game %>
+                    </p>
+                    <% }) %>
+                        <% user.topTimes.forEach(function (time) { %>
+                            <p>
+                                (
+                                <%= time %>)
+                            </p>
+                            <% }) %>
+                                <% }) %>
+
+                                    <%- include('layouts/footer.ejs') -%>
+</body>
+
+</html>
