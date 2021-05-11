@@ -5,34 +5,32 @@
     <%- include('layouts/head.ejs') -%>
 </head>
 
-<body>
+<body class="ma">
 
 
     <%- include('layouts/header.ejs') -%>
 
-        <h1>
-            <%= title %>
-        </h1>
-        <% users.forEach(function (user) { %>
-            <h2>
-                <%= user.name %>
-            </h2>
-            <h3>Most played games</h3>
-            <article>
-                <% user.topGames.forEach(function (game) { %>
-                    <p>
-                        <%= game %>
-                    </p>
-                    <% }) %>
-                        <% user.topTimes.forEach(function (time) { %>
-                            <p>
-                                (
-                                <%= time %>)
-                            </p>
-                            <% }) %>
+        <section>
+            <% users.forEach(function (user) { %>
+                <article>
+                    <span class="pic"></span>
+                    <article>
+                        <h4>
+                            <%= user.name %>
+                        </h4>
+                        <article>
+                            <% user.topGames.forEach(function (game) { %>
+                                <p>
+                                    <%= game %>
+                                </p>
                                 <% }) %>
-
-                                    <%- include('layouts/footer.ejs') -%>
+                        </article>
+                    </article>
+                    <a href="#">Full profile</a>
+                </article>
+                <% }) %>
+        </section>
+        <%- include('layouts/footer.ejs') -%>
 </body>
 
 </html>
