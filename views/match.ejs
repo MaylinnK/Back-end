@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('layouts/head.ejs') -%>
+</head>
+
+<body class="mat">
+
+
+    <%- include('layouts/header.ejs') -%>
+
+        <form action="/main/matches" method="post">
+            <select name="games" id="game">
+                <% games.forEach(function (game) { %>
+                    <option value="">
+                        <%= game %>
+                    </option>
+                    <% }) %>
+            </select>
+            <input type="submit">
+        </form>
+
+        <%- include('layouts/footer.ejs') -%>
+</body>
+
+</html>
