@@ -155,4 +155,8 @@ form a {
 .mat form input[type="submit"] {
     margin-top: 30px;
     padding: 10px;
+    width: 50%;
+    background-color: #ab76ce;
+    color: #d8d8d8;
+    font-weight: bold;
 }
