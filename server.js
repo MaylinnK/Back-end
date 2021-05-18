@@ -29,21 +29,6 @@ async function connectDB() {
   db = await client.db(process.env.DB_NAME);
 }
 
-
-
-//----------------------------------------
-// Filter                                -
-//----------------------------------------
-function filter() {
-  // const currentGame = window.getElementById("game").value;
-  // const arrayMatches = users.filter((users) => users.topGames === "Warframe");
-  // console.log(currentGame);
-  // console.log(arrayMatches);
-}
-
-filter();
-
-
 //----------------------------------------
 // Setting view engine                   -
 //----------------------------------------
