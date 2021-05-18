@@ -4,7 +4,7 @@
 //--------------------------------------
 const express = require("express");
 const app = express(); 
-const port = 3000;
+const port = 3001;
 const dotenv = require("dotenv").config();
 const { MongoClient } = require("mongodb");
 const games = ["Aura Kingdom", "Warframe", "CSGO", "Tetris"];
