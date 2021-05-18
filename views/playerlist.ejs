@@ -19,11 +19,12 @@
                             <%= user.name %>
                         </h4>
                         <article>
-                            <% user.topGames.forEach(function (game) { %>
-                                <p>
-                                    <%= game %>
-                                </p>
-                                <% }) %>
+                            <p>
+                                <%= user.topGame %>
+                            </p>
+                            <p>
+                                <%= user.time %>
+                            </p>
                         </article>
                     </article>
                     <a href="#">Full profile</a>

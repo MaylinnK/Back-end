@@ -10,15 +10,15 @@
 
     <%- include('layouts/header.ejs') -%>
 
-        <form action="/main/matches" method="post">
-            <select name="games" id="game">
+        <form action="/main/match" method="post">
+            <select name="currentgame" id="currentgame">
                 <% games.forEach(function (game) { %>
-                    <option value="">
+                    <option value="<%= game %>" name="<%= game %>" >
                         <%= game %>
                     </option>
                     <% }) %>
             </select>
-            <input type="submit">
+            <input value="Match" type="submit">
         </form>
 
         <%- include('layouts/footer.ejs') -%>

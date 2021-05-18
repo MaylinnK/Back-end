@@ -2,26 +2,49 @@
   {
     "name": "Riikyuu",
     "slug": "riikyuu",
-    "topGames": ["Aura Kingdom", "5983hrs"]
+    "topGame": "Aura Kingdom",
+    "time": "5983hrs"
   },
   {
     "name": "xAstaroth",
     "slug": "xastaroth",
-    "topGames": ["Warframe", "4385hrs"]
+    "topGame": "Warframe",
+    "time": "4385hrs"
   },
   {
     "name": "Sentia",
     "slug": "sentia",
-    "topGames": ["Aura Kingdom", "3674hrs"]
+    "topGame": "Aura Kingdom",
+    "time": "3674hrs"
   },
   {
     "name": "Beasthunter69",
     "slug": "beasthunter69",
-    "topGames": ["CSGO", "1521hrs"]
+    "topGame": "CSGO",
+    "time": "1521hrs"
   },
   {
     "name": "xXKirito07Xx",
     "slug": "xXKirito07Xx",
-    "topGames": ["Tetris", "13521hrs"]
+    "topGame": "Tetris",
+    "time": "13552hrs"
+  },
+  {
+    "name": "xXKirito420Xx",
+    "slug": "xXKirito420Xx",
+    "topGame": "CSGO",
+    "time": "1252hrs"
+  },
+  {
+    "name": "rinrin",
+    "slug": "rinrin",
+    "topGame": "Aura Kingdom",
+    "time": "2459hrs"
+  },
+  {
+    "name": "xnamewastakenx",
+    "slug": "xnamewastakenx",
+    "topGame": "CSGO",
+    "time": "5319hrs"
   }
 ]
