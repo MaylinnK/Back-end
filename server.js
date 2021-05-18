@@ -4,7 +4,9 @@
 //--------------------------------------
 const express = require("express");
 const app = express(); 
-const port = 3001;
+// eslint-disable-next-line no-undef
+const port = process.env.PORT;
+// eslint-disable-next-line no-unused-vars
 const dotenv = require("dotenv").config();
 const { MongoClient } = require("mongodb");
 const games = ["Aura Kingdom", "Warframe", "CSGO", "Tetris"];
@@ -17,11 +19,13 @@ let db = null;
 // function connect DB
 async function connectDB() {
   //get URI from .env file
+  // eslint-disable-next-line no-undef
   const uri = process.env.DB_URI;
   //make connection to database
   const options = { useUnifiedTopology: true };
   const client = new MongoClient(uri, options);
   await client.connect();
+  // eslint-disable-next-line no-undef
   db = await client.db(process.env.DB_NAME);
 }
 
@@ -86,6 +90,7 @@ app.post("/main/match", async (req, res) => {
   res.render("playerlist", { title: "Matches", users });
 });
 
+// eslint-disable-next-line no-unused-vars
 app.use(function (req, res, next) {
   res.status(404).render("error", {title: " "});
 });
@@ -101,6 +106,7 @@ app.listen(port, () => {
     //if succesful connection is made, show a message
     console.log('We have a connection to Mongo!')
 })
+// eslint-disable-next-line no-unused-vars
 .catch(error => {
     //if connection is unsuccessful, show error
     console.log('error')
