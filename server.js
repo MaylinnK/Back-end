@@ -5,7 +5,7 @@
 const express = require("express");
 const app = express(); 
 // eslint-disable-next-line no-undef
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || '5000';
 // eslint-disable-next-line no-unused-vars
 const dotenv = require("dotenv").config();
 const { MongoClient } = require("mongodb");
