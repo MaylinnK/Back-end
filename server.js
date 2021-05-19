@@ -95,6 +95,7 @@ app.listen(port, () => {
 // eslint-disable-next-line no-unused-vars
 .catch(error => {
     //if connection is unsuccessful, show error
+    console.log(DB_URI)
     console.log('error')
 });
 });
