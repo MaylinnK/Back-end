@@ -59,6 +59,7 @@ app.get("/main/players", async (req, res) => {
   const query = {};
   const options = {sort: {topGames: -1}};
   const users = await db.collection('users').find(query, options).toArray();
+  console.log(users)
   res.render("playerlist", { title: "Playerlist", users });
 });
 
