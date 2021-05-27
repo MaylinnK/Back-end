@@ -11,7 +11,7 @@
     <%- include('layouts/header.ejs') -%>
 
         <form action="/main/match" method="post">
-            <select name="currentgame" id="currentgame">
+            <select name="game" id="game">
                 <% games.forEach(function (game) { %>
                     <option value="<%= game %>" name="<%= game %>" >
                         <%= game %>

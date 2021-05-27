@@ -1,9 +1,8 @@
-
 //--------------------------------------
 // Defining variables                  -
 //--------------------------------------
 const express = require("express");
-const app = express(); 
+const app = express();
 // eslint-disable-next-line no-undef
 const port = process.env.PORT || '5000';
 // eslint-disable-next-line no-unused-vars
@@ -18,15 +17,15 @@ const games = ["Aura Kingdom", "Warframe", "CSGO", "Tetris"];
 let db = null;
 // function connect DB
 async function connectDB() {
-  //get URI from .env file
-  // eslint-disable-next-line no-undef
-  const uri = process.env.DB_URI;
-  //make connection to database
-  const options = { useUnifiedTopology: true };
-  const client = new MongoClient(uri, options);
-  await client.connect();
-  // eslint-disable-next-line no-undef
-  db = await client.db(process.env.DB_NAME);
+    //get URI from .env file
+    // eslint-disable-next-line no-undef
+    const uri = process.env.DB_URI;
+    //make connection to database
+    const options = { useUnifiedTopology: true };
+    const client = new MongoClient(uri, options);
+    await client.connect();
+    // eslint-disable-next-line no-undef
+    db = await client.db(process.env.DB_NAME);
 }
 
 //----------------------------------------
@@ -48,37 +47,43 @@ app.use(express.urlencoded({ extended: true })); //Parse URL-encoded bodies
 // Routes                                -
 //----------------------------------------
 app.get("/", (req, res) => {
-  res.render("login", { title: "" });
+    res.render("login", { title: "" });
 });
 
 app.get("/main", (req, res) => {
-  res.render("home", { title: ""});
+    res.render("home", { title: "" });
 });
 
-app.get("/main/players", async (req, res) => {
-  const query = {};
-  const options = {sort: {topGames: -1}};
-  const users = await db.collection('users').find(query, options).toArray();
-  console.log(users)
-  res.render("playerlist", { title: "Playerlist", users });
+app.get("/main/players", async(req, res) => {
+    const query = {};
+    const options = { sort: { topGames: -1 } };
+    const users = await db.collection('users').find(query, options).toArray();
+    console.log(users)
+    res.render("playerlist", { title: "Playerlist", users });
 });
 
 app.get("/main/match", (req, res) => {
-  res.render("match", { title: "Pick game", games });
+    res.render("match", { title: "Pick game", games });
 });
 
-app.post("/main/match", async (req, res) => {
-  const currentGame = req.body.currentgame;
-  console.log(currentGame);
-  const query = {topGame: currentGame};
-  const options = {sort: {time: -1}};
-  const users = await db.collection('users').find(query, options).toArray();
-  res.render("playerlist", { title: "Matches", users });
+app.post("/main/match", async(req, res) => {
+    const objectId = require('mongodb').ObjectID;
+    const form = req.body.game;
+    db.collection('formResult').updateOne({
+        _id: objectId
+    }, {
+        $set: { topGame: form }
+    });
+    const chosenGame = await db.collection('formResult').findOne({ "name": "game" }, { projection: { _id: 0, name: 0 } });
+    const options = { sort: { time: -1 } };
+    const query = chosenGame;
+    const users = await db.collection('users').find(query, options).toArray();
+    res.render("playerlist", { title: "Matches", users });
 });
 
 // eslint-disable-next-line no-unused-vars
-app.use(function (req, res, next) {
-  res.status(404).render("error", {title: " "});
+app.use(function(req, res, next) {
+    res.status(404).render("error", { title: " " });
 });
 
 
@@ -86,16 +91,16 @@ app.use(function (req, res, next) {
 // Starting server                       -
 //----------------------------------------
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-  connectDB()
-.then(() => {
-    //if succesful connection is made, show a message
-    console.log('We have a connection to Mongo!')
-})
-// eslint-disable-next-line no-unused-vars
-.catch(error => {
-    //if connection is unsuccessful, show error
-    console.log(DB_URI)
-    console.log('error')
-});
+    console.log(`Example app listening at http://localhost:${port}`);
+    connectDB()
+        .then(() => {
+            //if succesful connection is made, show a message
+            console.log('We have a connection to Mongo!')
+        })
+        // eslint-disable-next-line no-unused-vars
+        .catch(error => {
+            //if connection is unsuccessful, show error
+            console.log(DB_URI)
+            console.log('error')
+        });
 });
